@@ -6,6 +6,27 @@ Currently supports ES6 imports and syntax highlighting.
 
 This loader was built for the purpose of documenting React Components, but can be used for other static documents you want to convert to HTML. 
 
+#### It turns this:
+
+```markdown
+# Hello, World
+
+Its great to be here!
+```
+
+#### Into this:
+
+```javascript
+import React, { Fragment } from 'react';
+const Markdown = () => (
+  <Fragment>
+    <h1>Hello, World</h1>
+    <p>Its great to be here!</p>
+  </Fragment>
+);
+export default Markdown;
+```
+
 Note: Requires React 16.2+
 
 # Installation
@@ -16,7 +37,7 @@ yarn add markdown-to-react-loader
 
 # Usage
 
-First, update your Webpack config.
+Update your Webpack config. Because this loader outputs JSX its recommended to use the babel-loader after to compile the ES6 how you want.
 
 ```
 {
@@ -28,7 +49,7 @@ First, update your Webpack config.
 },
 ```
 
-Then, you can use the loader like:
+Then you can use the loader like:
 
 #### HelloWorld.md
 
