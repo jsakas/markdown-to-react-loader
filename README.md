@@ -1,5 +1,7 @@
 # markdown-to-react-loader
 
+[![NpmVersion](https://img.shields.io/npm/v/markdown-to-react-loader.svg)](https://www.npmjs.com/package/markdown-to-react-loader)
+
 A Webpack loader for converting Markdown files to React components (JSX).
 
 Currently supports ES6 imports and syntax highlighting.
@@ -39,7 +41,7 @@ yarn add markdown-to-react-loader
 
 Update your Webpack config. Because this loader outputs JSX its recommended to use the babel-loader after to compile the ES6 how you want.
 
-```
+```javascript
 {
   test: /\.md$/,
   use: [
@@ -53,7 +55,7 @@ Then you can use the loader like:
 
 #### HelloWorld.md
 
-```
+```markdown
 # Hello, World
 
 Its great to be here!
@@ -61,7 +63,7 @@ Its great to be here!
 
 #### App.js
 
-```
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import HelloWorld from './HelloWorld.md';
@@ -75,7 +77,7 @@ You can write ES6 imports inline using front matter.
 
 #### HelloWorldWithImport.md
 
-```
+```markdown
 ---
 imports: |
   import { SomeComponent } from './SomeComponent';
@@ -96,7 +98,7 @@ Syntax highlighting is done using PrismJS and is picked up automatically by tagg
 #### CodeSample.md
 
 	# Code Sample
-	
+
 	```javascript
 	console.log('This will be marked for highlighting');
 	```
