@@ -98,5 +98,5 @@ Syntax highlighting is done using PrismJS and is picked up automatically by tagg
 	# Code Sample
 	
 	```javascript
-	console.log('This will be marked for highlighting
+	console.log('This will be marked for highlighting');
 	```
