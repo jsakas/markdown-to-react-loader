@@ -1,6 +1,8 @@
 # markdown-to-react-loader
 
-[![NpmVersion](https://img.shields.io/npm/v/markdown-to-react-loader.svg)](https://www.npmjs.com/package/markdown-to-react-loader)
+
+### [![NpmVersion](https://img.shields.io/npm/v/markdown-to-react-loader.svg)](https://www.npmjs.com/package/markdown-to-react-loader) [![NpmDownloads](https://img.shields.io/npm/dt/markdown-to-react-loader.svg)](https://www.npmjs.com/package/markdown-to-react-loader)
+
 
 A Webpack loader for converting Markdown files to React components (JSX).
 
