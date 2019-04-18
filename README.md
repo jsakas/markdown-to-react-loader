@@ -38,6 +38,10 @@ Note: Requires React 16.2+
 ```
 yarn add markdown-to-react-loader
 ```
+Or
+```
+npm install --save-dev babel-loader @babel/preset-env @babel/preset-react markdown-to-react-loader
+```
 
 # Usage
 
@@ -46,8 +50,14 @@ Update your Webpack config. Because this loader outputs JSX its recommended to u
 ```javascript
 {
   test: /\.md$/,
+  exclude: /node_modules/,
   use: [
-    'babel-loader',
+    {
+    	loader: 'babel-loader',
+	options: {
+	    presets: ['@babel/env', '@babel/react']
+	}
+    },
     'markdown-to-react-loader',
   ],
 },
