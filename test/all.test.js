@@ -33,3 +33,7 @@ test('Compiles file with imports', () => {
 test('Compiles file with code block', () => {
   testIO('io/codeblock.md', 'io/codeblock.js');
 });
+
+test('Exports extra front matter as named exports', () => {
+  testIO('io/data.md', 'io/data.js');
+});
