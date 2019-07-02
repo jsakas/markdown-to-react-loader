@@ -6,7 +6,7 @@
 
 A Webpack loader for converting Markdown files to React components (JSX).
 
-Currently supports ES6 imports and syntax highlighting.
+Currently supports imports, syntax highlighting, and extra data.
 
 This loader was built for the purpose of documenting React Components, but can be used for other static documents you want to convert to HTML. 
 
@@ -36,16 +36,24 @@ Note: Requires React 16.2+
 # Installation
 
 ```
-yarn add markdown-to-react-loader
+yarn add --dev markdown-to-react-loader
 ```
-Or
 ```
-npm install --save-dev babel-loader @babel/preset-env @babel/preset-react markdown-to-react-loader
+npm install --save-dev markdown-to-react-loader
 ```
 
 # Usage
 
-Update your Webpack config. Because this loader outputs JSX its recommended to use the babel-loader after to compile the ES6 how you want.
+Because it outputs ES6 and JSX its recommended to use in conjunction with the babel-loader to compile for your targetted environment.
+
+```
+yarn add --dev babel-loader @babel/preset-env @babel/preset-react
+```
+```
+npm install --save-dev babel-loader @babel/preset-env @babel/preset-react
+```
+
+Update your Webpack config:
 
 ```javascript
 {
@@ -54,9 +62,9 @@ Update your Webpack config. Because this loader outputs JSX its recommended to u
   use: [
     {
     	loader: 'babel-loader',
-	options: {
-	    presets: ['@babel/env', '@babel/react']
-	}
+      options: {
+          presets: ['@babel/env', '@babel/react']
+      }
     },
     'markdown-to-react-loader',
   ],
@@ -83,7 +91,7 @@ import HelloWorld from './HelloWorld.md';
 ReactDOM.Render(<HelloWorld />, document.getElementById('app'));
 ```
 
-# Imports
+## Imports
 
 You can write ES6 imports inline using front matter.
 
@@ -103,14 +111,47 @@ Heres a component rendered inline:
 
 ```
 
-# Syntax Highlighting
+## Syntax Highlighting
 
 Syntax highlighting is done using PrismJS and is picked up automatically by tagging code blocks:
 
 #### CodeSample.md
 
-	# Code Sample
+    # Code Sample
 
-	```javascript
-	console.log('This will be marked for highlighting');
-	```
+    ```javascript
+    console.log('This will be marked for highlighting');
+    ```
+
+## Extra Data
+
+Any front matter that is not under the `imports` key is considered extra data. It is parsed and exported as named exports from the module.
+
+```markdown
+---
+title: Hello World
+slug: /post/1
+object:
+    - foo: bar
+    - baz: biz
+array:
+    - foo
+    - bar
+---
+```
+
+The above front matter is transformed to:
+
+```javascript
+const title = "Hello World";
+export { title };
+
+const slug = "/post/1";
+export { slug };
+
+const object = [{ foo: "bar" }, { baz: "biz" }];
+export { object };
+
+const array = ["foo", "bar"];
+export { array };
+```
