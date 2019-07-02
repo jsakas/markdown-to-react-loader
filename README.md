@@ -36,16 +36,24 @@ Note: Requires React 16.2+
 # Installation
 
 ```
-yarn add markdown-to-react-loader
+yarn add --dev markdown-to-react-loader
 ```
-Or
 ```
-npm install --save-dev babel-loader @babel/preset-env @babel/preset-react markdown-to-react-loader
+npm install --save-dev markdown-to-react-loader
 ```
 
 # Usage
 
-Update your Webpack config. Because this loader outputs JSX its recommended to use the babel-loader after to compile the ES6 how you want.
+Because it outputs ES6 and JSX its recommended to use the babel-loader after to compile for your environment.
+
+```
+yarn add --dev babel-loader @babel/preset-env @babel/preset-react
+```
+```
+npm install --save-dev babel-loader @babel/preset-env @babel/preset-react
+```
+
+Update your Webpack config:
 
 ```javascript
 {
@@ -54,9 +62,9 @@ Update your Webpack config. Because this loader outputs JSX its recommended to u
   use: [
     {
     	loader: 'babel-loader',
-	options: {
-	    presets: ['@babel/env', '@babel/react']
-	}
+      options: {
+          presets: ['@babel/env', '@babel/react']
+      }
     },
     'markdown-to-react-loader',
   ],
