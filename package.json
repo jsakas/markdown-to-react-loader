@@ -4,7 +4,7 @@
   "description": "A Webpack loader for converting Markdown files to React components",
   "main": "index.js",
   "repository": "git@github.com:jsakas/markdown-to-react-loader.git",
-  "author": "Jon Sakas <jon.sakas@beatport.com>",
+  "author": "Jon Sakas <jon.sakas@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "front-matter": "^2.1.2",
@@ -20,5 +20,11 @@
   },
   "scripts": {
     "test": "jest test"
-  }
+  },
+  "keywords": [
+    "markdown",
+    "react",
+    "webpack",
+    "loader"
+  ]
 }
