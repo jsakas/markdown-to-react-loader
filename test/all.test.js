@@ -37,3 +37,7 @@ test('Compiles file with code block', () => {
 test('Exports extra front matter as named exports', () => {
   testIO('io/data.md', 'io/data.js');
 });
+
+test('Properly converts parens & curly brackets', () => {
+  testIO('io/replace-chars.md', 'io/replace-chars.js');
+});
