@@ -50,6 +50,6 @@ test('Converts tables and table cells', () => {
   expectIO('io/table.md', 'io/table.js');
 });
 
-test('It can render everything', () => {
+test('Can render everything', () => {
   expectIO('io/everything.md', 'io/everything.js');
 });
