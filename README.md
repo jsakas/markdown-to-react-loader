@@ -111,6 +111,27 @@ Heres a component rendered inline:
 
 ```
 
+## Controlling JavaScript
+
+You can pass simple props to components. However, if you need to write more advanced JavaScript, its recommended to declare it in the imports section.
+
+```markdown
+---
+imports: |
+  import { SomeComponent } from './SomeComponent';
+
+  const dynamic = () => import('./SomeComponent');
+
+  console.log('You can put anything here!');
+---
+
+<SomeComponent simple="string" />
+<SomeComponent advanced={dynamic} />
+
+```
+
+Anything added to the `imports` front matter is added between the React import and component declaration in the outputted module.
+
 ## Syntax Highlighting
 
 Syntax highlighting is done using PrismJS and is picked up automatically by tagging code blocks:
