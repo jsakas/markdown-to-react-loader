@@ -4,7 +4,7 @@ const markdownToReact = require('../lib/markdown-to-react-loader');
 const pretter = require('prettier');
 
 
-const testIO = (inFile, outFile) => {
+const expectIO = (inFile, outFile) => {
   let input = getFileContents(inFile);
   let output = getFileContents(outFile);
 
@@ -23,21 +23,33 @@ const getFileContents = file => {
 }
 
 test('Compiles hello, world', () => {
-  testIO('io/simple.md', 'io/simple.js');
+  expectIO('io/simple.md', 'io/simple.js');
 });
 
 test('Compiles file with imports', () => {
-  testIO('io/imports.md', 'io/imports.js');
+  expectIO('io/imports.md', 'io/imports.js');
 });
 
 test('Compiles file with code block', () => {
-  testIO('io/codeblock.md', 'io/codeblock.js');
+  expectIO('io/codeblock.md', 'io/codeblock.js');
 });
 
 test('Exports extra front matter as named exports', () => {
-  testIO('io/data.md', 'io/data.js');
+  expectIO('io/data.md', 'io/data.js');
+});
+
+test('Can work with an async component', () => {
+  expectIO('io/javascript.md', 'io/javascript.js');
 });
 
 test('Properly converts parens & curly brackets', () => {
-  testIO('io/replace-chars.md', 'io/replace-chars.js');
+  expectIO('io/replace-chars.md', 'io/replace-chars.js');
+});
+
+test('Converts tables and table cells', () => {
+  expectIO('io/table.md', 'io/table.js');
+});
+
+test('It can render everything', () => {
+  expectIO('io/everything.md', 'io/everything.js');
 });
