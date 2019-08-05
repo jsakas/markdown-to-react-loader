@@ -53,3 +53,7 @@ test('Converts tables and table cells', () => {
 test('Can render everything', () => {
   expectIO('io/everything.md', 'io/everything.js');
 });
+
+test('Allows inline JSX', () => {
+  expectIO('io/jsx.md', 'io/jsx.js');
+});
