@@ -7,9 +7,9 @@
   "author": "Jon Sakas <jon.sakas@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "front-matter": "^2.1.2",
-    "marked": "^0.3.12",
-    "prismjs": "^1.10.0"
+    "front-matter": "^3.0.2",
+    "marked": "^0.7.0",
+    "prismjs": "^1.17.1"
   },
   "peerDependencies": {
     "react": "^16.2"

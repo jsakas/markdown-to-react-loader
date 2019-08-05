@@ -180,7 +180,7 @@ const Markdown = () => (
       and code blocks:
     </p>
     <blockquote>
-      <h2 id="this-is-a-header-">This is a header.</h2>
+      <h2 id="this-is-a-header">This is a header.</h2>
       <ol>
         <li>This is the first list item.</li>
         <li>This is the second list item.</li>
