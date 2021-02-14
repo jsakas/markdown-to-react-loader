@@ -57,3 +57,7 @@ test('Can render everything', () => {
 test('Allows inline JSX', () => {
   expectIO('io/jsx.md', 'io/jsx.js');
 });
+
+test('Makes checkboxes read-only', () => {
+  expectIO('io/taskListItems.md', 'io/taskListItems.js');
+});
